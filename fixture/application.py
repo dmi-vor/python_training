@@ -17,10 +17,5 @@ class Application:
         wd = self.wd
         wd.get("http://localhost/addressbook/")
 
-
-    def goto_home_page(self):
-        wd = self.wd
-        wd.find_element_by_link_text("home page").click()
-
     def destroy(self):
         self.wd.quit()
