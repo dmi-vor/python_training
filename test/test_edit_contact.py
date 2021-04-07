@@ -10,7 +10,7 @@ def test_edit_contact(app):
                                          work="mod+7003003003", fax="mod+7004004004", email_1="mode.email1@mail.ma", email_2="mode.email2@mail.ma", email_3="mode.email3@mail.ma", homepage="modhttps://www.culture.ru/poems/45240/dyadya-stepa", address_2="modaddress", home_2="modhome", notes="modЗнают взрослые и дети, Весь читающий народ, Что, живя на белом свете, Дядя Стёпа не умрёт!")
     contact.id = old_contacts[0].id
     app.contact.edit_first_contact(contact)
+    assert len(old_contacts) == app.contact.count()
     new_contacts = app.contact.get_contact_list()
-    assert len(old_contacts) == len(new_contacts)
     old_contacts[0] = contact
     assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
